@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%- include('header') -%>
+  <body>
+    <%-include('header2')-%>
+    <h2 class="text-center">アカウント管理</h2>
+    <form action="/setAccount" method="post">
+        <span class="form-group">ユーザー名</span>
+        <input type="text" name="userName" class="form-control"  value=<%-account.user%> required><br>
+        <br>
+        <span class="form-group">ID</span>
+        <input type="text" name="id" class="form-control" value=<%-account.id%> readonly><br>
+        <br>
+        <span class="form-group">パスワード</span>
+        <input type="password" name="password" class="form-control" value=<%-account.pwd%> required><br>
+        <br>
+        <button type="submit" class="btn btn-primary">変更</button>
+    </form>
+    <% if (typeof account !== 'undefined') { %>
+      <p class="login-user"><%= account.user %>さんとしてログインしています</p>
+    <% } %>
+    <% if(typeof noneIDPW !== 'undefined'){ %>
+       <p  class="alert alert-danger" role="alert"><%=noneIDPW%></p>
+    <% } %>
+    <% if(typeof accept !== 'undefined'){ %>
+       <p  class="alert alert-success" role="alert"><%=accept%></p>
+    <% } %>
+  </body>
+</html>

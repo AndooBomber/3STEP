@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%- include('header') -%>
+  <body>
+    <%-include('header2')-%>
+    <div>
+      <p id="author" class="p-4"></p>
+    </div>
+    <div>
+      <h1 id="titleDetail" class="text-center"></h1>
+      <input type="hidden" id="user_id" value=<%-param%>>
+      <input type="hidden" id="userName" value=<%-account.user%>>
+      <input type="hidden" id="a_id" value=<%-account._id%>>
+    </div>
+
+    <div class="p-3">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a href="#tab1" class="nav-link active" data-toggle="tab">トップ</a>
+        </li>
+        <li class="nav-item">
+          <a href="#tab2" class="nav-link" data-toggle="tab">掲示板</a>
+        </li>
+        <li class="nav-item">
+          <a href="#tab3" class="nav-link" data-toggle="tab">メンバー</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="tab1" class="tab-pane active">
+          <div class="p-4">
+          <h3 class="titleDefault">やりたいこと</h3>
+          <div id="message" class="p-4"></div>
+          <br>
+          <span>タグ: </span>
+          <span id="tags"></span>
+          </div>
+        </div>
+        <div id="tab2" class="tab-pane">
+          <div class="card">
+              <h5 class="card-header">チャット欄</h5>
+            <div id="scroller" class="card-body">
+              <ul id='messages' class="list-group">
+              </ul>
+            </div>
+            <div class="card-footer">
+              <label for='text'>内容</label>
+              <input id='text' type='text' name='text'/>
+              <button id='send' type="button" class="btn btn-primary">送信</button>
+            </div>
+          </div>
+        </div>
+        <div id="tab3" class="tab-pane text-center">
+          <div class="card">
+          <div class="card-header">
+            <h5>メンバー表</h5>
+          <button type="button" id="member_button" class="btn btn-primary">メンバーになる</button>
+          </div>
+          <ul id="member" class="list-group">
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <% if (typeof account !== 'undefined') { %>
+      <span id="user" class="login-user"><%= account.user %>さんとしてログインしています</span>
+    <% } %>
+
+
+    <%# socket.ioとchat.jsを読み込む%>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/javascripts/chat.js'></script>
+    <script src='/javascripts/showDetails.js'></script>
+  </body>
+</html>

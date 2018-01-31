@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%-include('header')-%>
+  <body>
+  <%# 共通ヘッダーの読み込み%>
+  <%-include('header2')-%>
+  <h3 class="p-3">検索</h3>
+  <form id='form'>
+  <%if(typeof param !== 'undefined'){%>
+    <input type="text" id='text' size='30' value=<%-param%>>
+  <%}else{%>
+    <input type='text' id='text' size='30'>
+  <%}%>
+    <span class='btn'>
+    <button type='submit' class='btn btn-primary'>検索</button>
+    </span>
+  </form>
+  <p id="error" style='display:none' class="alert alert-danger" role="alert"></p>
+  <div>
+    <ul id="list" class="list-group">
+    </ul>
+  </div>
+  <% if (typeof account !== 'undefined') { %>
+    <span class="login-user"><%= account.user %>さんとしてログインしています</span>
+  <% } %>
+  </body>
+  <script src='/javascripts/search.js'></script>
+</html>

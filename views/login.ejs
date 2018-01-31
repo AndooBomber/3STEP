@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%- include('header') -%>
+  <body>    
+  <img src="../images/1_Primary_logo_on_transparent_253x65.png" alt="ロゴ" width="155" height="40">
+  <h2 class="text-center">ログイン</h2>
+    <form action="/login" method="post">
+        <span class="form-group">ID</span><input type="text" name="id" class="form-control" required><br>
+        <br>
+        <span class="form-group">パスワード</span><input type="password" name="password" class="form-control" required><br>
+        <button type="submit" class="btn btn-primary">ログイン</button>
+    </form>
+    <% if(typeof cantFind !== 'undefined'){ %>
+       <p  class="alert alert-danger" role="alert"><%=cantFind%></p>
+    <% } %>
+    <% if(typeof noneIDPW !== 'undefined'){ %>
+       <p  class="alert alert-danger" role="alert"><%=noneIDPW%></p>
+    <% } %>
+    <br>
+    <a href="/register" class="btn btn-link btn-lg" role="button">新しいアカウントを作成</a>
+  </body>
+</html>

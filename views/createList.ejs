@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%- include('header') -%>
+  <body>
+    <%-include('header2')-%>
+    <form method='post' action='/createList'>
+      <div class="form-group">
+        <label class="control-label">タイトル</label>
+        <input type='text' id='text' name='title' placeholder='タイトル' class="form-control" size='30' required>  
+      </div>
+      <div class="form-group">
+        <label class="control-label">メッセージ</label><br>
+        <textarea id="message" name='message' cols="10" rows="10" placeholder="メッセージ" class="form-control" required></textarea>
+      </div>
+      <div　class="form-group">
+        <label class="control-label">タグ</label><br>
+        <input type="text" id="tags" name='tags' data-role="tagsinput" class="form-control"><br>
+        <p class="help-block">※5つまで設定可能</p>
+      </div>
+      <input type="hidden" name="user_id" value=<%-account._id%>>
+      <div id='visible' style='display:none'></div><br>
+      <button type="button" class="btn btn-primary" onClick='sendList()'>保存する</button>
+    </form>
+    <% if (typeof account !== 'undefined') { %>
+      <span class="login-user"><%= account.user %>さんとしてログインしています</span>
+    <% } %>
+    <script src='javascripts/createList.js'></script>
+  </body>
+</html>

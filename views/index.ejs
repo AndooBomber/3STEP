@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%# header.ejsの読み込み%>
+  <%- include('header') -%>
+  <body>
+    <%- include('header2') -%>
+    <div>
+      <h1 class="text-center">最近の募集</h1>
+    </div>
+    <div id='ul' class='m-3'>
+      <ul id='list'></ul>
+    </div>
+    <% if (typeof account !== 'undefined') { %>
+        <span class="login-user"><%= account.user %>さんとしてログインしています</span>
+    <% } %>
+    <script src='/javascripts/index.js'></script>
+  </body>
+</html>

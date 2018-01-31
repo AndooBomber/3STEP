@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%- include('header') -%>
+  <body>
+  <img src="../images/1_Primary_logo_on_transparent_253x65.png" alt="ロゴ" width="155" height="40">
+  <h2 class="text-center">アカウント作成</h2>
+    <form action="/register" method="post">
+        <span class="form-group">ユーザー名</span>
+        <input type="text" name="user_name" class="form-control"  required><br>
+        <br>
+        <span class="form-group">ID</span>
+        <input type="text" name="id" class="form-control" required><br>
+        <br>
+        <span class="form-group">パスワード</span>
+        <input type="password" name="password" class="form-control" required><br>
+        <button type="submit" class="btn btn-primary">新規会員登録</button>
+    </form>
+    <br>
+    <a href="/login" class="btn btn-link btn-lg" role="button">ログイン画面</a>
+  </body>
+</html>
