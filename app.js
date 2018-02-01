@@ -74,10 +74,7 @@ var Schema = mongoose.Schema;
 var chatSchema = new Schema({
   name: String,
   log: String,
-  createDate: {
-    type: Date,
-    default: Date.now()
-  }
+  createDate: Date
 });
 var listSchema = new Schema({
   author: String,
@@ -89,10 +86,7 @@ var listSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Account'
   }],
-  createDate: {
-    type: Date,
-    default: Date.now()
-  }
+  createDate: Date
 });
 var accountSchema = new Schema({
   user: String,
@@ -129,6 +123,7 @@ io.sockets.on('connection', function (socket) {
       var chats = {};
       chats.name = chat.name;
       chats.log = chat.message;
+      chats.createDate = chat.date;
       list.chats.push(chats);
       list.save();
     });
