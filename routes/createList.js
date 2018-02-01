@@ -36,6 +36,7 @@ router.post('/', function (req, res, next) {
         var tag = tags.split(',');
         schema.tags = tag;
       }
+      schema.createDate = Date.now();
       schema.chats = [];
       schema.save();
       account.lists.push(schema);
