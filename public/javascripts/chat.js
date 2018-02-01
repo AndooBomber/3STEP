@@ -9,7 +9,6 @@ socket.on('connect', function () {
 
 // chatというイベントを受信したらHTML要素に追加する
 socket.on('chat', function (chat) {
-  console.log(chat);
   var messages = $("#messages");
   // 新しいメッセージは既にある要素より上に表示させる
   var newMessage = $("<li>");
