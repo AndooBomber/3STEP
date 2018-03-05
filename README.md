@@ -16,4 +16,4 @@ Ajax,WebSocket使用
 まだまだ、改良の余地があるので手直しが必要である。  
 
 ## スライド
-(Slide)[https://goo.gl/eKSAAZ]
+[Slide](https://goo.gl/eKSAAZ)
