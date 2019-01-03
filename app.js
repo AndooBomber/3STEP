@@ -19,7 +19,7 @@ var moment = require('moment');
 const session = require('express-session');
 const mongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb://heroku_0pd0mzz3:dpa5uf3ecri6kjgg5iv5up28ui@ds255347.mlab.com:55347/heroku_0pd0mzz3');
+mongoose.connect('mongo:/test');
 
 var app = express();
 
